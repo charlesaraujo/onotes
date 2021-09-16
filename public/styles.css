@@ -1,0 +1,36 @@
+body {
+  background-color: #1e1e1e;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  padding: 1rem 0.5rem;
+  font-size: 1rem;
+}
+pre {
+  margin: 0;
+}
+
+#code-display {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.line-numbers {
+  color: #717171;
+  font-family: monospace;
+  text-align: end;
+}
+
+textarea {
+  background-color: transparent;
+  resize: none;
+  width: 100%;
+  padding: 0;
+  margin-left: 1rem;
+  color: #a7a7a7;
+  min-height: calc(100vh - 2rem);
+  border: none;
+  outline: none;
+}
