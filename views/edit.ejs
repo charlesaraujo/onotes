@@ -15,9 +15,10 @@
   </head>
   <body>
     <form action="/save" method="POST">
-      <%- include("_buttons.ejs", { canSave: true, notCreate:true }) %>
+      <%- include("_buttons.ejs", { canSave: true, notCreate: true }) %>
       <div class="wrapper">
         <div class="line-numbers">&gt;</div>
+        <input type="hidden" name="id" value="<%= locals.id %>" />
         <textarea autofocus name="value"><%= locals.value %></textarea>
       </div>
     </form>

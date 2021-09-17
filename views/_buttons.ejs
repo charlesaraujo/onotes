@@ -1,10 +1,12 @@
 <div class="buttons-wrapper">
   <a href="/" class="logo">ONotes</a>
   <div class="buttons">
+    <% if (!locals.notCreate) { %>
     <a class="btn" href="/new">New</a>
-    <% if (locals.canSave) { %>
+    <% } %> <% if (locals.canSave) { %>
     <button class="btn" type="submit">Save</button>
-    <% } %> <% if (locals.id != null) { %>
+    <% } %> <% if (locals.id != null && locals.canDoActions) { %>
+    <a class="btn" href="/<%= locals.id %>/edit">Edit</a>
     <a class="btn" href="/<%= locals.id %>/duplicate">Duplicate</a>
     <% } %>
   </div>

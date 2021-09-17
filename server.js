@@ -26,10 +26,17 @@ app.get("/new", (req, res) => {
 });
 
 app.post("/save", async (req, res) => {
-  const value = req.body.value;
+  const { value, id } = req.body;
+  console.log(value, id);
   try {
-    const document = await Document.create({ value });
-    res.redirect(`/${document.id}`);
+    if (!id) {
+      const document = await Document.create({ value });
+      res.redirect(`/${document.id}`);
+      return;
+    }
+
+    await Document.findOneAndUpdate({ _id: id }, { value: value });
+    res.redirect(`/${id}`);
   } catch (error) {
     res.render("new", { value });
   }
@@ -54,4 +61,15 @@ app.get("/:id/duplicate", async (req, res) => {
     res.redirect(`/${id}`);
   }
 });
+
+app.get("/:id/edit", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const document = await Document.findById(id);
+    res.render("edit", { value: document.value, id });
+  } catch (error) {
+    res.redirect(`/${id}`);
+  }
+});
+
 app.listen(3000);

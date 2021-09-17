@@ -25,6 +25,7 @@ pre {
 
 textarea {
   background-color: transparent;
+  font-size: 1rem;
   resize: none;
   width: 100%;
   padding: 0;
