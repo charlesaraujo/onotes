@@ -66,7 +66,7 @@ app.get("/:id/edit", async (req, res) => {
   const id = req.params.id;
   try {
     const document = await Document.findById(id);
-    res.render("edit", { value: document.value, id });
+    res.render("new", { value: document.value, id });
   } catch (error) {
     res.redirect(`/${id}`);
   }
